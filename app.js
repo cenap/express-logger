@@ -3,7 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var morganlogger = require('morgan');
-var logger = require("./utils/logger")('app');
+var logger = require('./utils/logger')('app');
 var log = logger.log;
 
 var indexRouter = require('./routes/index');
@@ -17,7 +17,7 @@ app.set('view engine', 'pug');
 
 log.info('APP INITIALIZED');
 log.debug("Overriding 'Express' logger");
-app.use(morganlogger('combined', { "stream": logger.stream }));
+app.use(morganlogger('combined', { 'stream': logger.stream }));
 log.info('Some info');
 log.error('Some error');
 
@@ -30,12 +30,12 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   next(createError(404));
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
