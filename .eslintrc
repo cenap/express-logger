@@ -1,0 +1,13 @@
+{
+  "env": {
+    "node": true,
+    "es6": true,
+    "mocha" : true
+  },
+  "extends": "standard",
+  "rules": {
+    "semi": ["error", "always"],
+    "no-unused-vars": ["warn", { "vars": "local", "args": "none" }],
+    "no-prototype-builtins": off
+  }
+}
