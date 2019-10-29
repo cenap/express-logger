@@ -15,6 +15,16 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
+console.log('\n');
+console.log('-----------SETTINGS----------------');
+console.log('NODE_ENV:' + process.env.NODE_ENV);
+console.log('LOG_TO_DB:' + process.env.LOG_TO_DB);
+console.log('LOG_TO_FILES:' + process.env.LOG_TO_FILES);
+console.log('APP_LOG_FILE:' + process.env.APP_LOG_FILE);
+console.log('ERROR_LOG_FILE:' + process.env.ERROR_LOG_FILE);
+console.log('-----------SETTINGS----------------');
+console.log('\n');
+
 log.info('APP INITIALIZED');
 log.debug("Overriding 'Express' logger");
 app.use(morganlogger('combined', { 'stream': logger.stream }));
